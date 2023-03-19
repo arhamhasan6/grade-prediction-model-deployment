@@ -20,7 +20,12 @@ def predict():
 
     output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='you will get {} % marks'.format(output))
+    if output<100:
+        text='you will get {} % marks'.format(output)
+    else:
+        text='reduce your working hours or it will detroit your health'
+
+    return render_template('index.html', prediction_text=text)
 
 
 if __name__ == "__main__":
